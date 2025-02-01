@@ -1,0 +1,176 @@
+ .open-price-match-btn {
+     padding: 1.2rem 2.5rem;
+     border: none;
+     cursor: pointer;
+     border-radius: 4px;
+    font-size: 1.5rem;
+    letter-spacing: .1rem;
+     font-weight: 500;
+     display: inline-block;
+     transition: background-color 0.2s ease;
+ }
+
+ .open-price-match-btn:hover {
+     opacity: 0.9;
+ }
+
+
+/* --- OVERLAY BACKDROP --- */
+.price-match-overlay {
+    display: none;
+    /* Hidden by default; JS toggles this on/off */
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Gray overlay */
+}
+
+/* --- MODAL WINDOW --- */
+.price-match-modal {
+    background: #fff;
+    width: 90%;
+    /* For mobile screens, fallback */
+    max-width: 550px;
+    /* Limit how wide the modal gets */
+    margin: 5% auto;
+    /* Center horizontally, 5% from top */
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+    /* For the close button positioning */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* --- CLOSE BUTTON --- */
+.modal-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    /* font-size: 0.9rem; */
+    cursor: pointer;
+
+}
+
+/* --- TITLES & TEXT --- */
+.modal-title {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.modal-subtitle {
+    margin: 1rem 0 1rem;
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+.modal-desc {
+    margin: 0 0 1rem;
+    line-height: 1.4;
+}
+
+/* --- FORM LAYOUT --- */
+#price-match-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* 2 columns on larger screens */
+    gap: 1rem;
+    /* Spacing between columns/rows */
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Force certain row(s) to span entire width */
+.form-row.full-width {
+    grid-column: 1 / 3;
+    /* Spans both columns */
+}
+
+/* LABELS & INPUTS */
+.form-row label {
+    margin-bottom: 0.1rem;
+    font-weight: 500;
+    font-size: 1.4rem;
+   
+}
+
+.form-row input,
+.form-row textarea {
+    padding: 0.6rem;
+font-size: 1.2rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* TEXTAREA height */
+.form-row textarea {
+    min-height: 70px;
+    resize: vertical;
+    /* Let user resize vertically if needed */
+}
+
+/* SUBMIT BUTTON */
+
+.submit-btn {
+    justify-self: center;
+    /* horizontally center within its grid cell */
+    grid-column: 1 / 3;
+    /* span both columns so it shows up centered below them */
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    width: auto;
+    /* ensure button fits to text */
+    display: inline-block;
+    /* helps keep it at text-width instead of 100% */
+}
+/* --- RESPONSIVE (Mobile) --- */
+@media (max-width: 600px) {
+    #price-match-form {
+        grid-template-columns: 1fr;
+        /* Single column */
+    }
+
+    .form-row.full-width {
+        grid-column: 1 / 1;
+        /* Just one column */
+    }
+}
+
+/* Simple spinner approach */
+.submit-btn.loading {
+    position: relative;
+    color: transparent;
+    /* hide the text */
+}
+
+.submit-btn.loading::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 16px;
+    height: 16px;
+    border: 2px solid #fff;
+    border-top: 2px solid #999;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg) translate(-50%, -50%);
+    }
+}

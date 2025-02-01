@@ -1,0 +1,172 @@
+
+<div id="price-match-overlay" class="price-match-overlay">
+  <div class="price-match-modal">
+    <!-- Close button in top-right -->
+    <button type="button" id="close-price-match-btn" class="modal-close-btn">
+      Close
+    </button>
+
+    <!-- Popup title + subtitle -->
+    <h2 class="modal-title">Price Match</h2>
+    <p class="modal-subtitle">
+      If you find a lower price, we’ll match or beat it – simple as that!
+    </p>
+ 
+    <!-- The form -->
+    <form id="price-match-form">
+      <div class="form-row">
+        <label for="pmName">Name</label>
+        <input
+          type="text"
+          id="priceMatchName"
+          name="pmName"
+          {% comment %} placeholder="Name " {% endcomment %}
+          required
+        />
+      </div>
+
+      <div class="form-row">
+        <label for="pmEmail">Email</label>
+        <input
+          type="email"
+          id="priceMatchEmail"
+          name="pmEmail"
+          {% comment %} placeholder="Your email" {% endcomment %}
+          required
+        />
+      </div>
+
+      <div class="form-row">
+        <label for="pmUrl">Competitor URL</label>
+        <input
+          type="url"
+          id="priceMatchURL"
+          name="pmUrl"
+          {% comment %} placeholder="https://example.com" {% endcomment %}
+          required
+        />
+      </div>
+
+      <div class="form-row">
+        <label for="pmPrice">Competitor Price</label>
+        <input
+          type="text"
+          id="priceMatchPrice"
+          name="pmPrice"
+          {% comment %} placeholder="your price" {% endcomment %}
+          required
+        />
+      </div>
+
+      <!-- A full-width row for Notes -->
+      <div class="form-row full-width">
+        <label for="pmNotes">Notes</label>
+        <textarea
+          id="priceMatchNotes"
+          name="pmNotes"
+          placeholder="Add extra details here..."
+        ></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn" id="submit-price-match-btn">
+  Send the request
+</button>
+
+    </form>
+  </div>
+</div>
+
+<div id="price-match-toast" class="price-match-toast"></div>
+
+<style>
+  .price-match-toast {
+    position: fixed;
+    bottom: 50px; 
+    right: 50px;
+    background: rgb(51 143 51);
+    color: #fff;
+    padding: 1rem 1.5rem;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 9999; 
+     max-width: 450px; 
+      word-break: break-word; 
+  white-space: normal;
+  font-weight:bold;
+  }
+
+
+  .price-match-toast.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+</style>
+<style>
+  .modal-title {
+    color: {{ block.settings.heading_color }};
+  }
+  .modal-subtitle, .modal-desc {
+    color: {{ block.settings.subtitle_color }};
+  }
+  .form-row label {
+    color: {{ block.settings.label_text_color }};
+  }
+  .form-row input,
+  .form-row textarea {
+    color: {{ block.settings.input_text_color }};
+  }
+  .submit-btn {
+    background-color: {{ block.settings.button_bg_color }};
+    color: {{ block.settings.button_text_color }};
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Price Match Popup Embed",
+  "target": "body",
+  "stylesheet": "style.css",
+  "javascript": "script.js",
+  "settings": [
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "subtitle_color",
+      "label": "Subtitle & Description Text Color",
+      "default": "#666666"
+    },
+    {
+      "type": "color",
+      "id": "label_text_color",
+      "label": "Form Label Color",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "input_text_color",
+      "label": "Input Text Color",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Button Background Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button Text Color",
+      "default": "#ffffff"
+    }
+  ]
+}
+{% endschema %}

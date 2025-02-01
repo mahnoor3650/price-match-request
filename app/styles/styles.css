@@ -1,0 +1,120 @@
+
+     .table-container {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+.filters-container {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 10px;
+    /* Adds spacing between the Select and ButtonGroup */
+}
+
+.filter-select :global(.Polaris-Select) {
+    height: 38px;
+    /* Match button height */
+    min-width: 120px;
+    /* Optional: adjust width */
+    border-radius: 4px;
+    /* Match button radius */
+    border: 1px solid #dcdcdc;
+    /* Match button border */
+    background-color: #f4f6f8;
+    /* Match button background */
+    padding: 0 12px;
+    /* Optional: adjust padding */
+    font-size: 14px;
+    /* Match button font size */
+    cursor: pointer;
+    /* Add pointer for consistency */
+}
+
+.filter-select :global(.Polaris-Select__Content) {
+    line-height: 38px;
+    /* Center-align text vertically */
+}
+    .styled-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 1.1em;
+        font-family: "Arial, sans-serif";
+        background-color: #f3f3f3;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .styled-table thead tr {
+        background-color: #009879;
+        color: #ffffff;
+        text-align: left;
+        font-weight: bold;
+    }
+
+    .styled-table th,
+    .styled-table td {
+        padding: 12px 15px;
+    }
+
+    .styled-table tbody tr {
+        border-bottom: 1px solid #dddddd;
+    }
+
+    .styled-table tbody tr:nth-of-type(even) {
+        background-color: #f3f3f3;
+    }
+
+    .styled-table tbody tr:last-of-type {
+        border-bottom: 2px solid #009879;
+    }
+
+    .styled-table tbody tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .error {
+        color: red;
+        text-align: center;
+    }
+
+
+
+ .styled-table tbody tr:nth-of-type(even) {
+     background-color: #f3f3f3;
+ }
+
+ .styled-table tbody tr:last-of-type {
+     border-bottom: 2px solid #009879;
+ }
+
+ .styled-table tbody tr:hover {
+     background-color: #f1f1f1;
+ }
+
+ .status-pending {
+     color: #ffbb00;
+ }
+
+ .status-approved {
+     color: #398a3c;
+ }
+
+ .status-denied {
+     color: #f44336;
+ }
+
+ .error {
+     color: red;
+     text-align: center;
+ }
+
+
+ .Polaris-Modal-Dialog__Modal{
+width: 500px !important;
+ }
+.Polaris-TextField {
+    width: 100px !important;
+}

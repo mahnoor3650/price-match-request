@@ -1,0 +1,42 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "676303dd8adfbcd85ca1f7b384fa5537"
+application_url = "https://defines-tc-savannah-dry.trycloudflare.com"
+embedded = true
+name = "Price Match"
+handle = "price-match-4"
+
+[webhooks]
+api_version = "2025-01"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks/app/uninstalled"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/scopes_update" ]
+  uri = "/webhooks/app/scopes_update"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products,read_discounts,write_discounts,read_price_rules, write_price_rules,write_checkouts,read_checkouts"
+
+[auth]
+redirect_urls = [
+  "https://defines-tc-savannah-dry.trycloudflare.com/auth/callback",
+  "https://defines-tc-savannah-dry.trycloudflare.com/auth/shopify/callback",
+  "https://defines-tc-savannah-dry.trycloudflare.com/api/auth/callback"
+]
+
+[app_proxy]
+url = "https://defines-tc-savannah-dry.trycloudflare.com/api/createDiscount"
+subpath = "proxy943"
+prefix = "apps"
+
+[pos]
+embedded = false
+
+[build]
+dev_store_url = "quickstart-234as67.myshopify.com"
+automatically_update_urls_on_dev = true
+include_config_on_deploy = true
