@@ -1,7 +1,7 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
 client_id = "676303dd8adfbcd85ca1f7b384fa5537"
-application_url = "https://defines-tc-savannah-dry.trycloudflare.com"
+application_url = "https://discussions-vegetarian-cp-howto.trycloudflare.com"
 embedded = true
 name = "Price Match"
 handle = "price-match-4"
@@ -23,13 +23,13 @@ scopes = "write_products,read_discounts,write_discounts,read_price_rules, write_
 
 [auth]
 redirect_urls = [
-  "https://defines-tc-savannah-dry.trycloudflare.com/auth/callback",
-  "https://defines-tc-savannah-dry.trycloudflare.com/auth/shopify/callback",
-  "https://defines-tc-savannah-dry.trycloudflare.com/api/auth/callback"
+  "https://discussions-vegetarian-cp-howto.trycloudflare.com/auth/callback",
+  "https://discussions-vegetarian-cp-howto.trycloudflare.com/auth/shopify/callback",
+  "https://discussions-vegetarian-cp-howto.trycloudflare.com/api/auth/callback"
 ]
 
 [app_proxy]
-url = "https://defines-tc-savannah-dry.trycloudflare.com/api/createDiscount"
+url = "https://discussions-vegetarian-cp-howto.trycloudflare.com/api/createDiscount"
 subpath = "proxy943"
 prefix = "apps"
 
